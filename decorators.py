@@ -107,3 +107,15 @@ def test():
 
 print(dir(test))
 test.__call__()
+
+
+# if we use multiple decorators it boils down to this under the hood
+
+"""
+@decorator1
+@decorator2
+def to_be_decorated():
+    block
+
+to_be_decorated = decorator1(decorator2(to_be_decorated))
+"""
