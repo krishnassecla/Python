@@ -18,6 +18,17 @@ class TestSum(unittest.TestCase):
         result = sum(data)
         self.assertEqual(result, 1)
 
+    def test_bad_type(self):
+        # data created as input i.e fixture
+        data = "banana"
+        with self.assertRaises(TypeError):
+            result = sum(data)
+
+    @unittest.parametrize("a, b, expected", [(2, 3, 5), (-1, 1, 0), (0, 0, 0)])
+    def test_add_numbers(self, a, b, expected):
+        result = add_numbers(a, b)
+        self.assertEqual(result, expected)
+
 
 if __name__ == "__main__":
     unittest.main()
